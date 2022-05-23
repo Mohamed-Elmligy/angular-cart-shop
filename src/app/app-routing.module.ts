@@ -5,6 +5,7 @@ import { HeaderComponent } from './header/header.component';
 
 const routes: Routes = [
   {path:'', component:HeaderComponent, children:[
+    {path:'', component:GridSystemComponent},
     {path:'Home', component:GridSystemComponent},
     {path:'Clothes', component:GridSystemComponent},
     {path:'Phones', component:GridSystemComponent},

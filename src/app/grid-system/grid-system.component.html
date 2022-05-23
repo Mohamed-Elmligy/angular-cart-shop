@@ -1,5 +1,5 @@
 <mat-grid-list cols="4" rowHeight="550px">
-    <mat-grid-tile *ngFor="let tile of item" [colspan]="tile.cols" [rowspan]="tile.rows"
+    <mat-grid-tile *ngFor="let tile of itemsShow" [colspan]="tile.cols" [rowspan]="tile.rows"
         [style.background]="tile.color">
         <mat-card class="example-card">
             <mat-card-header>
@@ -17,15 +17,15 @@
                 <button mat-button>
                     <mat-icon>favorite_border</mat-icon>
                 </button>
-                <button mat-button (click)="addToShoppingCart()" *ngIf="count==0">
+                <button mat-button (click)="addToShoppingCart(tile.id, tile.text, tile.price, tile.count)" *ngIf="tile.count==0">
                     <mat-icon>add_shopping_cart</mat-icon>
                 </button>
-                <span *ngIf="count!=0">
-                    <button mat-button (click)="removeOneItem()">
+                <span *ngIf="tile.count!=0">
+                    <button mat-button (click)="removeOneItem(tile.id)">
                         <mat-icon>remove_circle_outline</mat-icon>
                     </button>
-                    <span>{{count}}</span>
-                    <button mat-button (click)="addOneItem()">
+                    <span>{{tile.count}}</span>
+                    <button mat-button (click)="addOneItem(tile.id)">
                         <mat-icon>add_circle_outline</mat-icon>
                     </button>
                 </span>
