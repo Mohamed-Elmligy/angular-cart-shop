@@ -1,0 +1,35 @@
+<mat-grid-list cols="4" rowHeight="550px">
+    <mat-grid-tile *ngFor="let tile of item" [colspan]="tile.cols" [rowspan]="tile.rows"
+        [style.background]="tile.color">
+        <mat-card class="example-card">
+            <mat-card-header>
+                <div mat-card-avatar class="example-header-image"></div>
+                <mat-card-title>{{tile.text}}</mat-card-title>
+                <mat-card-subtitle>{{tile.price | currency}}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src={{tile.imgLink}} alt="Photo of a Shiba Inu" width="200" height="330">
+            <mat-card-content>
+                <p>
+                    {{tile.description}}
+                </p>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-button>
+                    <mat-icon>favorite_border</mat-icon>
+                </button>
+                <button mat-button (click)="addToShoppingCart()" *ngIf="count==0">
+                    <mat-icon>add_shopping_cart</mat-icon>
+                </button>
+                <span *ngIf="count!=0">
+                    <button mat-button (click)="removeOneItem()">
+                        <mat-icon>remove_circle_outline</mat-icon>
+                    </button>
+                    <span>{{count}}</span>
+                    <button mat-button (click)="addOneItem()">
+                        <mat-icon>add_circle_outline</mat-icon>
+                    </button>
+                </span>
+            </mat-card-actions>
+        </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>
