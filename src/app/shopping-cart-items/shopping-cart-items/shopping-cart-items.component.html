@@ -1,0 +1,80 @@
+<div class="container text-white">
+    <!----------------------- #region shopping cart header ---------------->
+
+    <!-- check it item arr is empty show thenBlock and if it have item show else block -->
+    <div *ngIf="itemArray?.length==0; then thenBlock else elseBlock"></div>
+    <!----------------------------------------------------------------------------------->
+
+    <ng-template #thenBlock>
+        <h1 class="text-center pt-5">You Don't Have Items Yet</h1>
+        <img src="../../../assets/images/empty/UI Elements -Colors – 1.svg"
+            style="width:30%; margin-left: 30vw; color:fff;">
+        <button mat-fab color="primary" class="d-block mx-auto" routerLink="/Home">
+            <mat-icon>arrow_back</mat-icon>
+        </button>
+    </ng-template>
+
+    <!----------------------- #region shopping cart header ---------------->
+
+    <ng-template #elseBlock>
+
+        <h1 class="text-white text-center pt-3" *ngIf="itemArray?.length!=0">Items You Have Selected</h1>
+
+        <!----------------------- #endregion shopping cart header ---------------->
+
+        <!----------------------- #region item in itemArr ------------------------->
+        <div class="allitem borderG" *ngIf="itemArray?.length!=0">
+            <mat-list role="list" *ngFor="let item of itemArray" class="p-3">
+                <mat-list-item role="listitem" class="rwo">
+
+                    <!---------------- #region item name ------------------------------>
+
+                    <h3 class="col m-0">{{item.itemName}}</h3>
+
+                    <!---------------- #endregion item name ------------------------------>
+
+                    <!---------------- #region item price ------------------------------>
+
+                    <p class="col">{{item.itemPrice}}</p>
+
+                    <!---------------- #endregion item price ------------------------------>
+
+                    <!---------------- #region action btns ------------------------------>
+
+                    <span class="col end">
+
+                        <!---------------- #region remove btn ------------------------------>
+
+                        <button mat-mini-fab color="warn" (click)="removeItem(item.itemID)">
+                            <mat-icon>delete_outline</mat-icon>
+                        </button>
+
+                        <!---------------- #endregion remove btn ------------------------------>
+
+                        <!---------------- #region decrease btn ------------------------------>
+
+                        <button mat-mini-fab color="accent" (click)="decreaseCount(item.itemID)">
+                            <mat-icon>remove_circle_outline</mat-icon>
+                        </button>
+
+                        <!---------------- #region decrease btn ------------------------------>
+
+                        <!---------------- #region increase btn ------------------------------>
+
+                        <span>{{item.itemCount}}</span>
+                        <button mat-mini-fab color="primary" (click)="increaseCount(item.itemID)">
+                            <mat-icon>add_circle_outline</mat-icon>
+                        </button>
+
+                        <!---------------- #region increase btn ------------------------------>
+
+                    </span>
+                    <!---------------- #endregion action btns ------------------------------>
+                </mat-list-item>
+            </mat-list>
+            <!----------------------- #endregion item in itemArr ------------------------->
+        </div>
+        <h3 class="text-white text-center fw-bold pt-2" *ngIf="itemArray?.length!=0">Total price: {{price | currency}}
+        </h3>
+    </ng-template>
+</div>

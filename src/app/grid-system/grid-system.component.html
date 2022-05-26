@@ -1,35 +1,98 @@
+<!------------------ #region here where item show in screen according to angular material gred design ------------->
+
 <mat-grid-list cols="4" rowHeight="550px">
+    <!--------------------------------- #region loop in itemarr to show items ---------------------------------->
+
     <mat-grid-tile *ngFor="let tile of itemsShow" [colspan]="tile.cols" [rowspan]="tile.rows"
         [style.background]="tile.color">
+
+        <!-------------------------------------- #region angular material card for every item --------------------------->
+
         <mat-card class="example-card">
+
+            <!------------------------------ #region card name and price --------------------------------------->
+
             <mat-card-header>
                 <div mat-card-avatar class="example-header-image"></div>
                 <mat-card-title>{{tile.text}}</mat-card-title>
                 <mat-card-subtitle>{{tile.price | currency}}</mat-card-subtitle>
             </mat-card-header>
+
+            <!------------------------------ #endregion card name and price --------------------------------------->
+
+            <!------------------------------ #region card img --------------------------------------->
+
             <img mat-card-image src={{tile.imgLink}} alt="Photo of a Shiba Inu" width="200" height="330">
+
+            <!------------------------------ #endregion card img --------------------------------------->
+
+            <!------------------------------ #region card content --------------------------------------->
+
             <mat-card-content>
                 <p>
                     {{tile.description}}
                 </p>
             </mat-card-content>
+
+            <!------------------------------ #endregion card content--------------------------------------->
+
+            <!------------------------------ #region card action --------------------------------------->
+
             <mat-card-actions>
-                <button mat-button>
-                    <mat-icon>favorite_border</mat-icon>
+
+                <!------------------------------ #region favorite items --------------------------------------->
+
+                <button mat-button [id]="tile.id" (click)="favorItem(tile.id, tile.text, tile.price, tile.count)">
+                    <mat-icon>favorite</mat-icon>
                 </button>
-                <button mat-button (click)="addToShoppingCart(tile.id, tile.text, tile.price, tile.count)" *ngIf="tile.count==0">
+
+                <!------------------------------ #endregion favorite items --------------------------------------->
+
+                <!------------------------------ #region item wanted to pay --------------------------------------->
+
+                <button mat-button (click)="additem(tile.id, tile.text, tile.price, tile.count)" *ngIf="tile.count==0">
                     <mat-icon>add_shopping_cart</mat-icon>
                 </button>
+
+                <!------------------------------ #endregion item wanted to pay --------------------------------------->
+
+                <!------------------------------ #region item count in shopping card --------------------------------------->
+
                 <span *ngIf="tile.count!=0">
-                    <button mat-button (click)="removeOneItem(tile.id)">
+
+                    <!------------------------------ #region btn decrease count --------------------------------------->
+
+                    <button mat-button (click)="decreaseCount(tile.id)">
                         <mat-icon>remove_circle_outline</mat-icon>
                     </button>
+
+                    <!------------------------------ #endregion btn decrease count --------------------------------------->
+
+                    <!------------------------------ #region item count --------------------------------------->
+
                     <span>{{tile.count}}</span>
-                    <button mat-button (click)="addOneItem(tile.id)">
+
+                    <!------------------------------ #endregion item count --------------------------------------->
+
+                    <!------------------------------ #region btn increase count --------------------------------------->
+
+                    <button mat-button (click)="increaseCount(tile.id)">
                         <mat-icon>add_circle_outline</mat-icon>
                     </button>
+
+                    <!------------------------------ #endregion btn increase count --------------------------------------->
+
                 </span>
+
+                <!------------------------------ #endregion item count in shopping card --------------------------------------->
+
             </mat-card-actions>
+
+            <!------------------------------ #endregion card action --------------------------------------->
+
         </mat-card>
+
     </mat-grid-tile>
+
+    <!-------------------------------------- #endregion angular material card for every item --------------------------->
 </mat-grid-list>

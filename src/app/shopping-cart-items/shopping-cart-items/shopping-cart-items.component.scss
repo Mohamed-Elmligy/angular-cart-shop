@@ -1,0 +1,18 @@
+.end {
+  flex: inherit;
+}
+
+button {
+  margin: 10px;
+}
+
+.borderG {
+  // border: 2px solid linear-gradient(to left, #743ad5, #d53a9d);
+  border-width: 4px;
+  border-style: solid;
+  border-image: linear-gradient(to left, #743ad5, #d53a9d) 1;
+}
+
+p {
+  margin: 0 0 0 80px;
+}

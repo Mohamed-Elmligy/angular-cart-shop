@@ -1,18 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
+//google font used in brand name section
 
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap");
+
+//space in header routing (ng mat style)
 .example-spacer {
-    flex: 1 1 auto;
-  }
+  flex: 1 1 auto;
+}
 
-  .dark-bg {
-    background-color: #000;
-  }
+.brand-font {
+  font-family: "Dancing Script", cursive;
+  font-weight: 700;
+}
 
-  nav {
-    margin-left: 20vw;
-  }
+.dark-bg {
+  background-color: #000;
+}
 
-  .brand-font{
-    font-family: 'Dancing Script', cursive;
-    font-weight: 700;
-  }
+nav {
+  margin-left: 20vw;
+}

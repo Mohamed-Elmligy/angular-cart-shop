@@ -15,12 +15,14 @@ import {MatBadgeModule} from '@angular/material/badge';
 import { GridSystemComponent } from './grid-system/grid-system.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatCardModule} from '@angular/material/card';
-
+import { ShoppingCartItemsComponent } from './shopping-cart-items/shopping-cart-items/shopping-cart-items.component';
+import {MatListModule} from '@angular/material/list';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    GridSystemComponent
+    GridSystemComponent,
+    ShoppingCartItemsComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +34,8 @@ import {MatCardModule} from '@angular/material/card';
     MatTabsModule,
     MatBadgeModule,
     MatGridListModule,
-    MatCardModule
+    MatCardModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
