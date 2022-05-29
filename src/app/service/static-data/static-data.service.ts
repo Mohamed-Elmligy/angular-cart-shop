@@ -107,6 +107,10 @@ export class StaticDataService {
     this.itemArr.filter((el, indx) => { (el.itemID == id) && (this.itemArr.splice(indx, 1)) })
     //add item from show arr
     this.itemsShow?.filter((el) => { (el.id == id) && (el.count = 0) })
+    this.home?.filter((el) => { (el.id == id) && (el.count = 0) })
+    this.clothes?.filter((el) => { (el.id == id) && (el.count = 0) })
+    this.furnitures?.filter((el) => { (el.id == id) && (el.count = 0) })
+    this.phones?.filter((el) => { (el.id == id) && (el.count = 0) })
     //update price
     this.updatePrice()
   };

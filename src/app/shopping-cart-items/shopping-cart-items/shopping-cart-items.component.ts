@@ -65,5 +65,9 @@ export class ShoppingCartItemsComponent implements OnInit {
     this.staticDataService.removeItem(id)
   }
 
+  print(){
+    console.log(this.staticDataService.itemsShow)
+  }
+
   //#endregion
 }
