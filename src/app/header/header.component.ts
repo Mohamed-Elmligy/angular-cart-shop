@@ -42,7 +42,9 @@ export class HeaderComponent implements OnInit {
 
   //#region loadControls
 
-  loadControls() { this.checkLength() }
+  loadControls() { 
+    this.checkLength() 
+  }
 
   //#endregion
   checkLength() {

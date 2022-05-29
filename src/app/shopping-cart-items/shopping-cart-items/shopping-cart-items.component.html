@@ -9,7 +9,7 @@
         <h1 class="text-center pt-5">You Don't Have Items Yet</h1>
         <img src="../../../assets/images/empty/UI Elements -Colors – 1.svg"
             style="width:30%; margin-left: 30vw; color:fff;">
-        <button mat-fab color="primary" class="d-block mx-auto" routerLink="" (click)="print()">
+        <button mat-fab color="primary" class="d-block mx-auto" routerLink="">
             <mat-icon>arrow_back</mat-icon>
         </button>
     </ng-template>
@@ -18,12 +18,12 @@
 
     <ng-template #elseBlock>
 
-        <h1 class="text-white text-center pt-3" *ngIf="itemArray?.length!=0">Items You Have Selected</h1>
+        <h1 class="text-white text-center pt-3">Items You Have Selected</h1>
 
         <!----------------------- #endregion shopping cart header ---------------->
 
         <!----------------------- #region item in itemArr ------------------------->
-        <div class="allitem borderG" *ngIf="itemArray?.length!=0">
+        <div class="allitem borderG">
             <mat-list role="list" *ngFor="let item of itemArray" class="p-3">
                 <mat-list-item role="listitem" class="rwo">
 

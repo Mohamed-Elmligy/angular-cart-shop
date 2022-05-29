@@ -12,6 +12,8 @@ export class StaticDataService {
 
   //#region variables declaration
 
+
+
   itemArr: ItemCount[] = [];
 
   price?: number = 0;
@@ -69,7 +71,7 @@ export class StaticDataService {
     this.itemArr.forEach(el => this.price! += el.itemCount * el.itemPrice)
   };
 
-  additem(id: number, name: string, price: number, count: number){
+  additem(id: number, name: string, price: number, count: number) {
     count += 1
     let item = {
       itemName: name,
@@ -79,7 +81,7 @@ export class StaticDataService {
     }
     this.itemArr?.push(item)//send that obj to item arr
     this.updatePrice()
-    this.itemsShow?.find(el=> (el.id == id) && (el.count = count))
+    this.itemsShow?.find(el => (el.id == id) && (el.count = count))
   }
   //increase count in item arr and item show
   increaseCount(id: number) {
@@ -94,12 +96,12 @@ export class StaticDataService {
   //decrease count in item arr and item show
   decreaseCount(id: number) {
     this.itemArr?.find(el => (el.itemID == id) && //check if itemId in itemArr == id sended
-      (el.itemCount != 0) && (el.itemCount -= 1)) &&
-      this.updatePrice() //checl if item count in itemArr != 0 so itemCount decrease
-      this.itemsShow?.find(el => (el.id == id) &&  // then check if Id in itemShow == id sended
-        (el.count -= 1)); // decrease count in item show and update price
+      (el.itemCount != 0) && (el.itemCount -= 1)) && this.updatePrice() //checl if item count in itemArr != 0 so itemCount decrease
+    this.itemsShow?.find(el => (el.id == id) &&  // then check if Id in itemShow == id sended
+      (el.count -= 1)); // decrease count in item show
     //remove item from item arr & show arr
-    this.itemArr?.find((el) => (el.itemID == id) && (el.itemCount == 0) && this.removeItem(id));
+    console.log(this.itemArr?.find(el => el.itemID))
+    this.itemArr?.find((el) => (el == undefined) ? null : (el.itemID == id) && (el.itemCount == 0) && this.removeItem(id));
   };
 
   removeItem(id: number) {
@@ -107,6 +109,7 @@ export class StaticDataService {
     this.itemArr.filter((el, indx) => { (el.itemID == id) && (this.itemArr.splice(indx, 1)) })
     //add item from show arr
     this.itemsShow?.filter((el) => { (el.id == id) && (el.count = 0) })
+    //make count in every arr  = 0
     this.home?.filter((el) => { (el.id == id) && (el.count = 0) })
     this.clothes?.filter((el) => { (el.id == id) && (el.count = 0) })
     this.furnitures?.filter((el) => { (el.id == id) && (el.count = 0) })
@@ -116,14 +119,14 @@ export class StaticDataService {
   };
 
 
-  favorItem(id: number, name: string, price: number, count: number){
+  favorItem(id: number, name: string, price: number, count: number) {
     let item = {
       itemName: name,
       itemID: id,
       itemPrice: price,
       itemCount: count
     }
-    this.favorItemArr?.find((el,indx)=> (el.itemID == id)? this.favorItemArr?.splice(indx, 1) : this.favorItemArr?.push(item));
+    this.favorItemArr?.find((el, indx) => (el.itemID == id) ? this.favorItemArr?.splice(indx, 1) : this.favorItemArr?.push(item));
   };
   //#endregion
 }

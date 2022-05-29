@@ -1,6 +1,7 @@
 //angular modules
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ItemCount } from 'src/app/models/IItemCount/item-count';
+
 // services
 import { StaticDataService } from 'src/app/service/static-data/static-data.service';
 
@@ -10,9 +11,9 @@ import { StaticDataService } from 'src/app/service/static-data/static-data.servi
   styleUrls: ['./shopping-cart-items.component.scss']
 })
 
-export class ShoppingCartItemsComponent implements OnInit {
+export class ShoppingCartItemsComponent {
 
-  //#region variables declaration
+  // #region variables declaration
 
   itemArray: ItemCount[] = this.staticDataService.itemArr;
 
@@ -28,9 +29,6 @@ export class ShoppingCartItemsComponent implements OnInit {
 
   //#region oninit
 
-  ngOnInit() {
-
-  }
 
   //#endregion onint
 
@@ -63,10 +61,6 @@ export class ShoppingCartItemsComponent implements OnInit {
 
   removeItem(id: number) {  //get removeItem fun from service
     this.staticDataService.removeItem(id)
-  }
-
-  print(){
-    console.log(this.staticDataService.itemsShow)
   }
 
   //#endregion

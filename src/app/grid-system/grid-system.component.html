@@ -3,7 +3,7 @@
 <mat-grid-list cols="4" rowHeight="550px">
     <!--------------------------------- #region loop in itemarr to show items ---------------------------------->
 
-    <mat-grid-tile *ngFor="let tile of itemsShow" [colspan]="tile.cols" [rowspan]="tile.rows"
+    <mat-grid-tile *ngFor="let tile of itemsShow" [colspan]="tile.cols" [rowspan]="tile.rows" 
         [style.background]="tile.color">
 
         <!-------------------------------------- #region angular material card for every item --------------------------->
