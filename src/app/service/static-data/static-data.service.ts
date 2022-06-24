@@ -100,7 +100,6 @@ export class StaticDataService {
     this.itemsShow?.find(el => (el.id == id) &&  // then check if Id in itemShow == id sended
       (el.count -= 1)); // decrease count in item show
     //remove item from item arr & show arr
-    console.log(this.itemArr?.find(el => el.itemID))
     this.itemArr?.find((el) => (el == undefined) ? null : (el.itemID == id) && (el.itemCount == 0) && this.removeItem(id));
   };
 
